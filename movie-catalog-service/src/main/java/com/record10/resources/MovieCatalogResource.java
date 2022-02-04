@@ -31,7 +31,7 @@ public class MovieCatalogResource {
 		);
 		
 		return ratings.stream().map(rating->{
-			Movie movie = rt.getForObject("http://localhost:8081/movie/" + rating.getMovieId(), Movie.class);
+			Movie movie = rt.getForObject("http://localhost:8081/movies/" + rating.getMovieId(), Movie.class);
 			return new CatalogItem(movie.getName(), "Description", rating.getRating());
 		})
 		.collect(Collectors.toList());
